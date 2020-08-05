@@ -25,3 +25,4 @@ mergeable:
     pass:
       - do: labels
       labels: [ 'tests_passed' ]
+      message: 'In labels'
