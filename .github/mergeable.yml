@@ -9,3 +9,6 @@ mergeable:
     pass:
       - do: labels
         labels: [ 'tests_passed' ]
+      - do: comment
+        payload:
+          body: 'Comment from mergeable'
