@@ -10,7 +10,7 @@ mergeable:
         payload:
           body: 'This pull request is old. Please consider merging or closing it.'
 
-  - when: pull_request.*, pull_request_review.*
+  - when: pull_request.*
     validate:
       - do: title
         must_exclude:
