@@ -21,8 +21,8 @@ mergeable:
       - do: description
         no_empty:
           enabled: true
-          message: 'Description matter and should not be empty. Provide detail with **what** was changed, **why** it was changed, and **how** it was changed.'
-    pass:
-      - do: labels
-        labels: [ 'tests_passed' ]
-        message: 'In labels'
+          message: 'Provide detail with **what** was changed, **why** it was changed, and **how** it was changed.'
+#    pass:
+      #- do: labels
+        #labels: [ 'tests_passed' ]
+        #message: 'In labels'
