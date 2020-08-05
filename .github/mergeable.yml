@@ -7,6 +7,5 @@ mergeable:
           enabled: true
           message: 'Provide detail with **what** was changed, **why** it was changed, and **how** it was changed.'
     pass:
-      - do: comment
-        payload:
-          body: 'tests_passed1'
+      - do: labels
+        labels: [ 'tests_passed' ]
