@@ -1,23 +1,7 @@
 version: 2
 mergeable:
-  - when: schedule.repository
-    validate:
-      - do: stale
-        days: 30
-        type: pull_request
-    pass:
-      - do: comment
-        payload:
-          body: 'This pull request is old. Please consider merging or closing it.'
-
   - when: pull_request.*
     validate:
-      - do: title
-        must_exclude:
-          regex: '\bWIP\b'
-        must_include:
-          regex: '^([A-Z][A-Z]+-\d+|NOISSUE|HOTFIX):'
-          regex_flag: none
       - do: description
         no_empty:
           enabled: true
