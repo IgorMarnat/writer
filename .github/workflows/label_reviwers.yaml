@@ -12,6 +12,10 @@ jobs:
         requested_reviewers: ${{ toJson(github.event.pull_request.requested_reviewers) }}
         number: ${{ github.event.pull_request.number }}
         number1: ${{ github.event.number }}
+        number2: ${{ github.event.issue.number }} 
+        number3: ${{github.event.pull_request.number}}
+        number4: ${{github.event.number}}
+        number5: ${{github.event.issue.number}} 
         #pull_number: ${{ $(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH") }}
       run: |
         length=$(echo $requested_reviewers | jq '. | length')
@@ -21,4 +25,8 @@ jobs:
         echo "requested_reviewers = $requested_reviewers"
         echo "number = $number"
         echo "number1 = $number1"
+        echo "number2 = $number2"
+        echo "number3 = $number3"
+        echo "number4 = $number4"
+        echo "number5 = $number5"
         echo "pull_number = $pull_number"
