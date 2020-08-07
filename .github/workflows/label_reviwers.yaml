@@ -16,6 +16,8 @@ jobs:
         number: ${{ github.event.pull_request.number }}
         number1: ${{ github.event.number }}
         number2: ${{ github.event.issue.number }} 
+        number21: ${{ github.event.issue.id }}
+        number22: ${{ github.event.type }}
         number3: ${{github.event.pull_request.number}}
         number4: ${{github.event.number}}
         number5: ${{github.event.issue.number}} 
@@ -32,6 +34,8 @@ jobs:
         echo "number = $number"
         echo "number1 = $number1"
         echo "number2 = $number2"
+        echo "number21 = $number21"
+        echo "number22 = $number22"
         echo "number3 = $number3"
         echo "number4 = $number4"
         echo "number5 = $number5"
