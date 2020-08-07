@@ -9,6 +9,7 @@ jobs:
     steps:
     - name: Put label
       env:
+        pull_request: ${{ toJson(github.event.pull_request) }}
         requested_reviewers: ${{ toJson(github.event.pull_request.requested_reviewers) }}
         requested_reviewers2: ${{ toJson(github.event.issue.requested_reviewers) }}
         requested_reviewers3: ${{github.event.issue.requested_reviewers}}
