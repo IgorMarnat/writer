@@ -1,6 +1,6 @@
 name: Labeling reviewers
 
-on: [push, pull_request,check_run,issue_comment]
+on: [push, pull_request,check_run,pull_request_review_comment]
 
 jobs:
   my-job:
