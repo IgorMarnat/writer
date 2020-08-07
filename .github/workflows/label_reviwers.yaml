@@ -1,8 +1,17 @@
-- name: get the count of requested reviewers
-  run: |
-    length=$(echo $requested_reviewers | jq '. | length')
-    list=$(echo $requested_reviewers | jq '. .login')
-    echo "length = $length"
-    echo "list = $list"
-  env:
-    requested_reviewers: ${{ toJson(github.event.pull_request.requested_reviewers) }}
+name: Labeling reviewers
+
+on: [push, pull_request,check_run,issue_comment]
+
+jobs:
+  my-job:
+    name: My Job
+    runs-on: ubuntu-latest
+    steps:
+    - name: Put label
+      env:
+        requested_reviewers: ${{ toJson(github.event.pull_request.requested_reviewers) }}
+      run: |
+        length=$(echo $requested_reviewers | jq '. | length')
+        list=$(echo $requested_reviewers | jq '. .login')
+        echo "length = $length"
+        echo "list = $list"
