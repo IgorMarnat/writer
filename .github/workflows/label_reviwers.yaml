@@ -10,7 +10,9 @@ jobs:
     - name: Put label
       env:
         requested_reviewers: ${{ toJson(github.event.pull_request.requested_reviewers) }}
-        requested_reviewers1: ${{ toJson(github.event.issue.requested_reviewers) }}
+        requested_reviewers1: ${{ github.event.pull_request.requested_reviewers }}
+        requested_reviewers2: ${{ toJson(github.event.issue.requested_reviewers) }}
+        requested_reviewers3: ${{github.event.issue.requested_reviewers}}
         number: ${{ github.event.pull_request.number }}
         number1: ${{ github.event.number }}
         number2: ${{ github.event.issue.number }} 
@@ -25,6 +27,8 @@ jobs:
         echo "list = $list"
         echo "requested_reviewers = $requested_reviewers"
         echo "requested_reviewers1 = $requested_reviewers1"
+        echo "requested_reviewers2 = $requested_reviewers2"
+        echo "requested_reviewers3 = $requested_reviewers3"
         echo "number = $number"
         echo "number1 = $number1"
         echo "number2 = $number2"
