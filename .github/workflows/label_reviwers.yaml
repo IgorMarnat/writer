@@ -22,10 +22,6 @@ jobs:
         number5: ${{github.event.issue.number}} 
         #pull_number: ${{ $(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH") }}
       run: |
-        length=$(echo $requested_reviewers | jq '. | length')
-        list=$(echo $requested_reviewers | jq '. .login')
-        echo "length = $length"
-        echo "list = $list"
         echo "requested_reviewers = $requested_reviewers"
         echo "requested_reviewers1 = $requested_reviewers1"
         echo "requested_reviewers2 = $requested_reviewers2"
@@ -39,3 +35,7 @@ jobs:
         echo "number4 = $number4"
         echo "number5 = $number5"
         echo "pull_number = $pull_number"
+        length=$(echo $requested_reviewers | jq '. | length')
+        list=$(echo $requested_reviewers | jq '. .login')
+        echo "length = $length"
+        echo "list = $list"
