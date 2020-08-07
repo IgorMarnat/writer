@@ -10,8 +10,11 @@ jobs:
     - name: Put label
       env:
         requested_reviewers: ${{ toJson(github.event.pull_request.requested_reviewers) }}
+        number: ${{ github.event.pull_request.number }}
       run: |
         length=$(echo $requested_reviewers | jq '. | length')
         list=$(echo $requested_reviewers | jq '. .login')
         echo "length = $length"
         echo "list = $list"
+        echo "requested_reviewers = $requested_reviewers"
+        echo "number = $number"
