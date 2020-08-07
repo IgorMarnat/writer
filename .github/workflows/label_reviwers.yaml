@@ -1,0 +1,8 @@
+- name: get the count of requested reviewers
+  run: |
+    length=$(echo $requested_reviewers | jq '. | length')
+    list=$(echo $requested_reviewers | jq '. .login')
+    echo "length = $length"
+    echo "list = $list"
+  env:
+    requested_reviewers: ${{ toJson(github.event.pull_request.requested_reviewers) }}
