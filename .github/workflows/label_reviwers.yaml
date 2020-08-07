@@ -11,6 +11,7 @@ jobs:
       env:
         requested_reviewers: ${{ toJson(github.event.pull_request.requested_reviewers) }}
         number: ${{ github.event.pull_request.number }}
+        pull_number: ${{ $(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH") }}
       run: |
         length=$(echo $requested_reviewers | jq '. | length')
         list=$(echo $requested_reviewers | jq '. .login')
@@ -18,3 +19,4 @@ jobs:
         echo "list = $list"
         echo "requested_reviewers = $requested_reviewers"
         echo "number = $number"
+        echo "pull_number = $pull_number"
