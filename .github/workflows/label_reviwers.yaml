@@ -22,6 +22,7 @@ jobs:
         number4: ${{github.event.number}}
         number5: ${{github.event.issue.number}} 
         #pull_number: ${{ $(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH") }}
+      if: ${{ $requested_reviewers }}
       run: |
         length=$(echo $requested_reviewers | jq '. | length')
         list=$(echo $requested_reviewers | jq '.[] .login')
