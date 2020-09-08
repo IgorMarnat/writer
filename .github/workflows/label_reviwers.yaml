@@ -27,3 +27,4 @@ jobs:
         list=$(echo $requested_reviewers | jq '.[] .login')
         echo "length = $length"
         echo "list = $list"
+        curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" --request POST --data '{"labels": ["bug1", "enhancement1"]}' https://api.github.com/repos/IgorMarnat/writer/issues/15/labels
