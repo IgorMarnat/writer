@@ -13,14 +13,6 @@ jobs:
         requested_reviewers: ${{ toJson(github.event.pull_request.requested_reviewers) }}
         #requested_reviewers2: ${{ toJson(github.event.issue.requested_reviewers) }}
         #requested_reviewers3: ${{github.event.issue.requested_reviewers}}
-        number: ${{ github.event.pull_request.number }}
-        number1: ${{ github.event.number }}
-        number2: ${{ github.event.issue.number }} 
-        number21: ${{ github.event.issue.id }}
-        number22: ${{ github.event.type }}
-        number3: ${{github.event.pull_request.number}}
-        number4: ${{github.event.number}}
-        number5: ${{github.event.issue.number}} 
         #pull_number: ${{ $(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH") }}
       if: ${{ github.event.pull_request.requested_reviewers }}
       run: |
@@ -28,4 +20,4 @@ jobs:
         list=$(echo $requested_reviewers | jq '.[] .login')
         echo "length = $length"
         echo "list = $list"
-        curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" --request POST --data '{"labels": ["bug1", "enhancement1"]}' https://api.github.com/repos/IgorMarnat/writer/issues/15/labels
+        curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" --request POST --data '{"labels": $list}' https://api.github.com/repos/IgorMarnat/writer/issues/15/labels
